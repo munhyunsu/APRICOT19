@@ -1,18 +1,16 @@
 import pickle
 
-d = dict()
-#asn_data = open('asn.txt', 'r', encoding='utf-8')
+data = dict()
 
-with open('asn-sample.txt', 'r', encoding='utf-8') as asn_data:
-    for line in asn_data:
-        asn = line.split(' ')[0]
-        asn = asn.strip()
-        ctr = line.split(' ')[-1]
-        ctr = ctr.strip()
-        if ctr not in d:
-            d[ctr] = list()
-        d[ctr].append(asn)
+with open('asn.txt', 'r', encoding='utf-8') as f:
+    for line in f:
+        splited_line = line.split(' ')
+        asn = splited_line[0].strip()
+        ctr = splited_line[-1].strip()
+        if ctr not in data:
+            data[ctr] = list()
+        data[ctr].append(asn)
 
 with open('asn.pickle', 'wb') as f:
-    pickle.dump(d, f)
+    pickle.dump(data, f)
 
