@@ -3,8 +3,9 @@ import json
 import time
 import random
 
-from ihr_crawler.crawler import get_hegemony, get_transit
+from ihr_crawler.crawler import get_hegemony, get_transit, get_percent
 from ripe_crawler.crawler import get_prefix
+
 
 def main():
     os.makedirs('./data/', exist_ok=True)
@@ -49,7 +50,7 @@ def is_stub(asn):
     asn = int(asn)
     for result in data['results']:
         if int(result['originasn']) != 0 and int(result['originasn']) != asn:
-            stub=False
+            stub = False
             break
     return stub
 
@@ -67,6 +68,28 @@ def get_customer(asn):
         print('New prefix saved: {0}'.format(filepath))
         time.sleep(random.randint(0, 3))
     return data
+
+
+def get_weight(ctr, asn):
+    os.makedirs('./data_percent/', exist_ok=True)
+    filepath = os.path.join('./data_percent/', '{0}.json'.format(ctr))
+    if os.path.exists(filepath):
+        with open(filepath, 'r') as f:
+            data = json.load(f)
+    else:
+        data = get_percent(ctr)
+        with open(filepath, 'w') as f:
+            json.dump(data, f, indent=True, ensure_ascii=False)
+        print('New percent saved: {0}'.format(filepath))
+        time.sleep(random.randint(0, 3))
+
+    value = 0
+    for entry in data:
+        if int(entry['as']) != int(asn):
+            continue
+        value = int(entry['percent'])
+        break
+    return value
 
 
 if __name__ == '__main__':
