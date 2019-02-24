@@ -19,6 +19,9 @@ python3 start.py
 - Hyunsu Mun (munhyunsu@gmail.com)
 - Tarau Bauia (tbauia@gmail.com)
 
+## Slides
+- [Link](https://drive.google.com/open?id=1-COftdOsldGbNZr2bzv6FpD_ByBK-UWf)
+
 ## Reference (and/or Useful) site
 - https://ftp.ripe.net/ripe/asnames/asn.txt
 - https://ihr.iijlab.net/
