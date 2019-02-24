@@ -16,7 +16,7 @@ pip3 install --upgrade pip setuptools
 pip3 install -r requirements.txt
 
 echo "Create pickle"
-python3 1-create_asn_country_pickle.py
+python3 create_asn_country_pickle.py
 
 echo "Done! you can execute start.py"
 echo "Command: python3 start.py"
