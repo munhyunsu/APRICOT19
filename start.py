@@ -61,6 +61,7 @@ def as_dependency():
     for key in asn_hege.keys():
         if ARGS.weight is not None:
             weight = sum(asn_hege[key])  # It is hard to understand
+            #weight = sum(asn_hege[key])/weight_sum  # If you want the result for all people then reported by APNIC
         else:
             weight = sum(asn_hege[key])/len(asn_active)
         asn_avg.append((key, weight))
