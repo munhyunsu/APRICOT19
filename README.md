@@ -27,5 +27,3 @@ python3 start.py
 - https://ihr.iijlab.net/
 - https://bgp.he.net/
 
-### API point
-- https://ihr.iijlab.net/ihr/api/hegemony/?af=4&format=json&ordering=-hege&originasn=??&timebin=??
